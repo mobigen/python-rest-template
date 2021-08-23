@@ -1,0 +1,27 @@
+server:
+  host: 0.0.0.0
+  port: 9999
+
+database:
+  redis:
+    host: 192.168.102.114
+    port: 30801
+    password: 2c2aaf47-62dc-4711-9653-172d5a4e2ff2
+  maria:
+    host: 192.168.100.180
+    port: 33306
+    user: root
+    password: qwer1234
+    dbname: ANGORA_METASTORE
+  sqlite:
+    path: .
+    file_name: test.db
+
+log_file: logs/fast_template.log
+
+simple_angora:
+  host: 192.168.100.180
+  port: 6036  #30903
+  user: root
+  password: biris.manse
+
