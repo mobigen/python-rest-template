@@ -3,6 +3,13 @@ from fastapi import Request
 from fastapi.responses import JSONResponse
 
 
+class ConfigException(Exception):
+    def __init__(self, key, value, msg):
+        self.key = key
+        self.value = value
+        self.msg = msg
+
+
 class FastException(Exception):
     def __init__(self, name: str):
         self.name = name

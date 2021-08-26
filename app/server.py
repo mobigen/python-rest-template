@@ -1,4 +1,4 @@
-from fastapi import Depends, FastAPI
+from fastapi import FastAPI
 
 # from app.dependencies import get_query_token
 
@@ -50,25 +50,27 @@ responses = {
     418: {"description": "this is fast exception"},
 }
 
-app = FastAPI(
-              title="Fast API Template",
-              description=description,
-              version="0.0.1",
-              terms_of_service="http://example.com/terms/",
-              contact={
-                  "name": "This is contact parameters",
-                  "url": "http://x-force.example.com/contact/",
-                  "email": "cfd0318@gmail.com",
-              },
-              license_info={
-                  "name": "jheok_template",
-                  "url": "https://www.apache.org/licenses/LICENSE-2.0.html",
-              },
-              docs_url="/docs",
-              redoc_url="/redoc",
-              openapi_url="/api/v1/openapi.json",
-              # dependencies=[Depends(get_query_token)],
-              openapi_tags=tags_metadata,
-              responses=responses
-              )
 
+app = FastAPI(
+                      )
+"""
+          title="Fast API Template",
+          description=description,
+          version="0.0.1",
+          terms_of_service="http://example.com/terms/",
+          contact={
+              "name": "This is contact parameters",
+              "url": "http://x-force.example.com/contact/",
+              "email": "cfd0318@gmail.com",
+          },
+          license_info={
+              "name": "jheok_template",
+              "url": "https://www.apache.org/licenses/LICENSE-2.0.html",
+          },
+          docs_url="/docs",
+          redoc_url="/redoc",
+          openapi_url="/api/v1/openapi.json",
+          # dependencies=[Depends(get_query_token)],
+          openapi_tags=tags_metadata,
+          responses=responses
+"""

@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-from app.common.config import SqliteConf
+from app.config.base_config import SqliteConf
 
 sqlite_conf = SqliteConf()
 

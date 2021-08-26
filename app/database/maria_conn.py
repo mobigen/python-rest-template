@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-from app.common.config import MariaConf
+from app.config.base_config import MariaConf
 
 maria_conf = MariaConf()
 

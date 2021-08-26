@@ -1,17 +1,27 @@
-from fastapi import APIRouter, Request
+from fastapi import APIRouter
 from app.error.exceptions import FastException
-from fastapi.responses import JSONResponse
+from app.server import app
+from app.config.base_config import Config
+import logging
 
+logger = logging.getLogger()
+
+logger.info(Config.server.port)
+logger.info('init user')
 
 router = APIRouter(
     prefix="/users",
     tags=["users"],
 )
-
+app.include_router(router)
 
 @router.get("/", tags=["users"])
 async def read_users():
     return [{"username": "Rick"}, {"username": "Morty"}]
+
+@app.get("/")
+def test():
+    return [{"username": "Rickaa"}, {"username": "Morty"}]
 
 
 @router.get("/me", tags=["users"])

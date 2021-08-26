@@ -1,33 +1,22 @@
-import logging
-import uvicorn
-
-from app.internal import admin
-from app.routers import items, users, redis, maria, sqlite
-from app.server import app, responses
-
-from app.logs.logging import FastLogger, config
-
-logger = logging.getLogger('uvicorn.error')
-
-app.include_router(users.router, responses={4042: {"description": "Not found"}},)
-app.include_router(items.router)
-app.include_router(redis.router)
-app.include_router(maria.router)
-app.include_router(sqlite.router)
-
-app.include_router(admin.router)
-app.logger = FastLogger()
-
-@app.get("/")
-async def start():
-    logger.info('testsetse')
-    return {"message": "Hello Bigger Applications!"}
+from app.init.config import *
+from app.init.log import *
+from app.server import *
+from app.routers import *
 
 
-# @app.on_event("startup")
-# async def startup_event():
-#     FastLogger()
+def start():
+    import uvicorn
+    from app.config.base_config import Config
+
+    uvicorn.run(
+        "main:app",
+        port=Config.server.port,
+        workers=Config.server.workers,
+        log_config=log_config
+    )
 
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", port=8080, reload=True)
+    # print(dir(logging.Logger.manager.loggerDict))
+    # print(logging.Logger.manager.loggerDict)
+    start()

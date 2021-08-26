@@ -17,7 +17,8 @@ database:
     path: .
     file_name: test.db
 
-log_file: logs/fast_template.log
+log:
+  level: info
 
 simple_angora:
   host: 192.168.100.180

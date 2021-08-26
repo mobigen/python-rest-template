@@ -1,6 +1,6 @@
 import redis
 
-from app.common.config import RedisConf
+from app.config.base_config import RedisConf
 
 redis_conf = RedisConf()
 
