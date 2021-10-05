@@ -13,11 +13,12 @@ router = APIRouter(
     prefix="/users",
     tags=["users"],
 )
-app.include_router(router)
+
 
 @router.get("/", tags=["users"])
 async def read_users():
     return [{"username": "Rick"}, {"username": "Morty"}]
+
 
 @app.get("/")
 def test():
