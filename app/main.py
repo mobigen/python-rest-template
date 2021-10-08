@@ -8,6 +8,8 @@ def start():
     import uvicorn
     from app.config.base_config import Config
 
+    app.include_router(users.router)
+
     uvicorn.run(
         "main:app",
         port=Config.server.port,
